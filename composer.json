@@ -10,11 +10,14 @@
         "arcanedev/no-captcha": "~3.0",
         "creativeorange/gravatar": "~1.0",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
+        "dingo/api": "1.0.*@dev",
         "hieu-le/active": "~3.0",
         "laravel/framework": "5.4.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.4.*",
+        "spatie/laravel-json-api-paginate": "^1.1",
+        "xiag/rql-parser": "^2.0",
         "yajra/laravel-datatables-oracle": "^7.0"
     },
     "require-dev": {

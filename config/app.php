@@ -200,6 +200,10 @@ return [
         App\Providers\HistoryServiceProvider::class,
         App\Providers\MacroServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+    
+        Dingo\Api\Provider\LaravelServiceProvider::class,
+        App\Providers\FractalServiceProvider::class,
+        Spatie\JsonApiPaginate\JsonApiPaginateServiceProvider::class,
 
     ],
 
