@@ -1,17 +1,21 @@
 <?php
 
+namespace Tests;
+
 use App\Models\Access\Role\Role;
 use App\Models\Access\User\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Laravel\BrowserKitTesting\TestCase as BaseTestCase;
 
 /**
  * Class TestCase.
  */
-abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
+abstract class BrowserKitTestCase extends BaseTestCase
 {
+    use CreatesApplication;
     use DatabaseTransactions;
 
     /**
@@ -52,25 +56,13 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
     protected $userRole;
 
     /**
-     * Creates the application.
-     *
-     * @return \Illuminate\Foundation\Application
-     */
-    public function createApplication()
-    {
-        $app = require __DIR__.'/../bootstrap/app.php';
-
-        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
-
-        return $app;
-    }
-
-    /**
      * Set up tests.
      */
     public function setUp()
     {
         parent::setUp();
+
+        $this->baseUrl = config('app.url', 'http://l5boilerplate.dev');
 
         // Set up the database
         Artisan::call('migrate:refresh');
