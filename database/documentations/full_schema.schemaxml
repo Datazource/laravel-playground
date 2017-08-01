@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="latin1" collation="latin1_swedish_ci">laravel_playground</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="history" view="colnames">
+<left>361</left>
+<top>397</top>
+<width>112</width>
+<height>222</height>
+<sql_create_table>CREATE TABLE `history` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `type_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `entity_id` int(10) unsigned DEFAULT NULL,
+  `icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `class` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `assets` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `history_type_id_foreign` (`type_id`),
+  KEY `history_user_id_foreign` (`user_id`),
+  CONSTRAINT `history_type_id_foreign` FOREIGN KEY (`type_id`) REFERENCES `history_types` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `history_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci</sql_create_table>
+</table>
+<table name="history_types" view="colnames">
+<left>505</left>
+<top>273</top>
+<width>112</width>
+<height>156</height>
+<sql_create_table>CREATE TABLE `history_types` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci</sql_create_table>
+</table>
+<table name="migrations" view="colnames">
+<left>23</left>
+<top>9</top>
+<width>112</width>
+<height>110</height>
+<sql_create_table>CREATE TABLE `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=349 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci</sql_create_table>
+</table>
+<table name="password_resets" view="colnames">
+<left>169</left>
+<top>9</top>
+<width>112</width>
+<height>110</height>
+<sql_create_table>CREATE TABLE `password_resets` (
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci</sql_create_table>
+</table>
+<table name="permission_role" view="colnames">
+<left>647</left>
+<top>158</top>
+<width>112</width>
+<height>110</height>
+<sql_create_table>CREATE TABLE `permission_role` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `permission_id` int(10) unsigned NOT NULL,
+  `role_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `permission_role_permission_id_foreign` (`permission_id`),
+  KEY `permission_role_role_id_foreign` (`role_id`),
+  CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci</sql_create_table>
+</table>
+<table name="permissions" view="colnames">
+<left>792</left>
+<top>62</top>
+<width>112</width>
+<height>139</height>
+<sql_create_table>CREATE TABLE `permissions` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `permissions_name_unique` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci</sql_create_table>
+</table>
+<table name="role_user" view="colnames">
+<left>359</left>
+<top>29</top>
+<width>112</width>
+<height>110</height>
+<sql_create_table>CREATE TABLE `role_user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `role_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `role_user_user_id_foreign` (`user_id`),
+  KEY `role_user_role_id_foreign` (`role_id`),
+  CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `role_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci</sql_create_table>
+</table>
+<table name="roles" view="colnames">
+<left>503</left>
+<top>95</top>
+<width>112</width>
+<height>158</height>
+<sql_create_table>CREATE TABLE `roles` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `all` tinyint(1) NOT NULL DEFAULT '0',
+  `sort` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `roles_name_unique` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci</sql_create_table>
+</table>
+<table name="sessions" view="colnames">
+<left>662</left>
+<top>372</top>
+<width>112</width>
+<height>158</height>
+<sql_create_table>CREATE TABLE `sessions` (
+  `id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(10) unsigned DEFAULT NULL,
+  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text COLLATE utf8mb4_unicode_ci,
+  `payload` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_activity` int(11) NOT NULL,
+  UNIQUE KEY `sessions_id_unique` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci</sql_create_table>
+</table>
+<table name="social_logins" view="colnames">
+<left>43</left>
+<top>405</top>
+<width>112</width>
+<height>190</height>
+<sql_create_table>CREATE TABLE `social_logins` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `provider` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `avatar` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `social_logins_user_id_foreign` (`user_id`),
+  CONSTRAINT `social_logins_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci</sql_create_table>
+</table>
+<table name="users" view="colnames">
+<left>188</left>
+<top>217</top>
+<width>140</width>
+<height>276</height>
+<sql_create_table>CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(3) unsigned NOT NULL DEFAULT '1',
+  `confirmation_code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `confirmed` tinyint(1) NOT NULL DEFAULT '0',
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
