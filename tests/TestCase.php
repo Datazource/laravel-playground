@@ -1,4 +1,5 @@
 <?php
+namespace Tests;
 
 use App\Models\Access\Role\Role;
 use App\Models\Access\User\User;
@@ -10,7 +11,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 /**
  * Class TestCase.
  */
-abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
+abstract class TestCase extends \Illuminate\Foundation\Testing\TestCase
 {
     use DatabaseTransactions;
 

@@ -11,10 +11,7 @@
             {{ link_to_route('frontend.index', app_name(), [], ['class' => 'navbar-brand']) }}
         </div><!--navbar-header-->
 
-        <div class="collapse navbar-collapse" id="frontend-navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li>{{ link_to_route('frontend.macros', trans('navs.frontend.macros'), [], ['class' => active_class(Active::checkRoute('frontend.macros')) ]) }}</li>
-            </ul>
+        <div class="collapse navbar-collapse" id="frontend-navbar-collapse"> 
 
             <ul class="nav navbar-nav navbar-right">
                 @if (config('locale.status') && count(config('locale.languages')) > 1)

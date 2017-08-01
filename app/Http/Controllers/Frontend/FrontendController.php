@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class FrontendController.
@@ -14,7 +15,11 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        if (Auth::check()) {
+            return redirect()->route('frontend.user.dashboard');
+        }else{
+            return redirect()->route('frontend.auth.login');
+        }
     }
 
     /**
