@@ -1,15 +1,15 @@
 ## USAGE
-docker-compose build
-docker-compose up -d nginx mysql
-cp .env.example .env
-composer update
-npm update
-npm run dev
-php artisan migrate:refresh --seed
+docker-compose build<br />
+docker-compose up -d nginx mysql<br />
+cp .env.example .env<br />
+composer update<br />
+npm update<br />
+npm run dev<br />
+php artisan migrate:refresh --seed<br />
 
-demo : [donny.id/laravel-playground](https://donny.id/laravel-playground)
+demo : [donny.id/laravel-playground](https://donny.id/laravel-playground)<br />
 
-existings user & pass :
-admin@admin.com 1234
-executive@executive.com 1234
-user@user.com
+existings user & pass :<br />
+admin@admin.com 1234<br />
+executive@executive.com 1234<br />
+user@user.com<br />
