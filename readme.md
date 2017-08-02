@@ -12,4 +12,4 @@ demo : [donny.id/laravel-playground](https://donny.id/laravel-playground)<br />
 existings user & pass :<br />
 admin@admin.com 1234<br />
 executive@executive.com 1234<br />
-user@user.com<br />
+user@user.com 1234<br />
