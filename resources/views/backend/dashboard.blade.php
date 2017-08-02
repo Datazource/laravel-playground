@@ -16,7 +16,7 @@
             </div><!-- /.box tools -->
         </div><!-- /.box-header -->
         <div class="box-body">
-            {!! trans('strings.backend.welcome') !!}
+            {!! '...' !!}
         </div><!-- /.box-body -->
     </div><!--box box-success-->
 

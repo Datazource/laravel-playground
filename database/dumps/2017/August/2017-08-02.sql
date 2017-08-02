@@ -1,24 +1,17 @@
 /*
+SQLyog Ultimate v10.42 
 MySQL - 5.7.19 : Database - laravel_playground
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
 /*!40101 SET SQL_MODE=''*/;
 
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`laravel_playground` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `laravel_playground`;
-
 /*Table structure for table `history` */
-
-DROP TABLE IF EXISTS `history`;
 
 CREATE TABLE `history` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -42,8 +35,6 @@ CREATE TABLE `history` (
 
 /*Table structure for table `history_types` */
 
-DROP TABLE IF EXISTS `history_types`;
-
 CREATE TABLE `history_types` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -54,11 +45,10 @@ CREATE TABLE `history_types` (
 
 /*Data for the table `history_types` */
 
-insert  into `history_types`(`id`,`name`,`created_at`,`updated_at`) values (1,'User','2017-08-01 18:54:02','2017-08-01 18:54:02'),(2,'Role','2017-08-01 18:54:02','2017-08-01 18:54:02');
+insert  into `history_types`(`id`,`name`,`created_at`,`updated_at`) values (1,'User','2017-08-01 18:54:02','2017-08-01 18:54:02');
+insert  into `history_types`(`id`,`name`,`created_at`,`updated_at`) values (2,'Role','2017-08-01 18:54:02','2017-08-01 18:54:02');
 
 /*Table structure for table `migrations` */
-
-DROP TABLE IF EXISTS `migrations`;
 
 CREATE TABLE `migrations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -69,11 +59,14 @@ CREATE TABLE `migrations` (
 
 /*Data for the table `migrations` */
 
-insert  into `migrations`(`id`,`migration`,`batch`) values (343,'2014_10_12_000000_create_users_table',1),(344,'2014_10_12_100000_create_password_resets_table',1),(345,'2015_12_28_171741_create_social_logins_table',1),(346,'2015_12_29_015055_setup_access_tables',1),(347,'2016_07_03_062439_create_history_tables',1),(348,'2017_04_04_131153_create_sessions_table',1);
+insert  into `migrations`(`id`,`migration`,`batch`) values (343,'2014_10_12_000000_create_users_table',1);
+insert  into `migrations`(`id`,`migration`,`batch`) values (344,'2014_10_12_100000_create_password_resets_table',1);
+insert  into `migrations`(`id`,`migration`,`batch`) values (345,'2015_12_28_171741_create_social_logins_table',1);
+insert  into `migrations`(`id`,`migration`,`batch`) values (346,'2015_12_29_015055_setup_access_tables',1);
+insert  into `migrations`(`id`,`migration`,`batch`) values (347,'2016_07_03_062439_create_history_tables',1);
+insert  into `migrations`(`id`,`migration`,`batch`) values (348,'2017_04_04_131153_create_sessions_table',1);
 
 /*Table structure for table `password_resets` */
-
-DROP TABLE IF EXISTS `password_resets`;
 
 CREATE TABLE `password_resets` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -85,8 +78,6 @@ CREATE TABLE `password_resets` (
 /*Data for the table `password_resets` */
 
 /*Table structure for table `permission_role` */
-
-DROP TABLE IF EXISTS `permission_role`;
 
 CREATE TABLE `permission_role` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -105,8 +96,6 @@ insert  into `permission_role`(`id`,`permission_id`,`role_id`) values (1,1,2);
 
 /*Table structure for table `permissions` */
 
-DROP TABLE IF EXISTS `permissions`;
-
 CREATE TABLE `permissions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -123,8 +112,6 @@ insert  into `permissions`(`id`,`name`,`display_name`,`created_at`,`updated_at`)
 
 /*Table structure for table `role_user` */
 
-DROP TABLE IF EXISTS `role_user`;
-
 CREATE TABLE `role_user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
@@ -138,11 +125,11 @@ CREATE TABLE `role_user` (
 
 /*Data for the table `role_user` */
 
-insert  into `role_user`(`id`,`user_id`,`role_id`) values (1,1,1),(2,2,2),(3,3,3);
+insert  into `role_user`(`id`,`user_id`,`role_id`) values (1,1,1);
+insert  into `role_user`(`id`,`user_id`,`role_id`) values (2,2,2);
+insert  into `role_user`(`id`,`user_id`,`role_id`) values (3,3,3);
 
 /*Table structure for table `roles` */
-
-DROP TABLE IF EXISTS `roles`;
 
 CREATE TABLE `roles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -157,11 +144,12 @@ CREATE TABLE `roles` (
 
 /*Data for the table `roles` */
 
-insert  into `roles`(`id`,`name`,`all`,`sort`,`created_at`,`updated_at`) values (1,'Administrator',1,1,'2017-08-01 18:54:02','2017-08-01 18:54:02'),(2,'Executive',0,2,'2017-08-01 18:54:02','2017-08-01 18:54:02'),(3,'User',0,3,'2017-08-01 18:54:02','2017-08-01 18:54:02'),(4,'Elisa Thompson',0,64,'2017-08-01 18:54:02','2017-08-01 18:54:02');
+insert  into `roles`(`id`,`name`,`all`,`sort`,`created_at`,`updated_at`) values (1,'Administrator',1,1,'2017-08-01 18:54:02','2017-08-01 18:54:02');
+insert  into `roles`(`id`,`name`,`all`,`sort`,`created_at`,`updated_at`) values (2,'Executive',0,2,'2017-08-01 18:54:02','2017-08-01 18:54:02');
+insert  into `roles`(`id`,`name`,`all`,`sort`,`created_at`,`updated_at`) values (3,'User',0,3,'2017-08-01 18:54:02','2017-08-01 18:54:02');
+insert  into `roles`(`id`,`name`,`all`,`sort`,`created_at`,`updated_at`) values (4,'Elisa Thompson',0,64,'2017-08-01 18:54:02','2017-08-01 18:54:02');
 
 /*Table structure for table `sessions` */
-
-DROP TABLE IF EXISTS `sessions`;
 
 CREATE TABLE `sessions` (
   `id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -175,11 +163,10 @@ CREATE TABLE `sessions` (
 
 /*Data for the table `sessions` */
 
-insert  into `sessions`(`id`,`user_id`,`ip_address`,`user_agent`,`payload`,`last_activity`) values ('vm1BvjcDGC4dynnDql6L1pp6Nxc5mBQRPtOX3lab',1,'127.0.0.1','Symfony/3.X','ZXlKcGRpSTZJalJpV200M2NWZ3dYQzl4VFZ3dk5qQkhjVXQ0U21wV1p6MDlJaXdpZG1Gc2RXVWlPaUpGZURsM1dEZHVkMjlsU1hZM0t6WkRSbGRjTDBnclFWTlVWakpHVFZWNVEycE1aRzFMYjFSUWFuSjZPRXd5VEcxWFNrVlNTWGt4UVc1cE4wOUVObmRvZEdsV04wTk9RVkYzUTNCTVVWVnRTRnB5TlVKc1ZHRkVOR3A2UWxCY0wxbzNUV3hEY1ZOcU4ydG1PSEZ3TVZVelYzSkxkRGxSTUdSY0wweGlSVWxJZDI5cVdtNVdkRTljTHpONlFUaEVNblZvVEhSRWRWaEJNM1IxU1V0VFRVeENTSE50WEM5NFVWYzBUVFZzY1Z3dmNFVTlJaXdpYldGaklqb2lPV1k0WW1Rek9HRTJNV1UwT0dRMU5UWmtPVGM1WkdGbU56WTJNV015TlRVM01ERTFPV1l5WVRsak1EUTBNbVJsTURZMU1tWTRNRE5qWldWaE5HSmpaU0o5',1501613642),('YsYi5QHYvyDcErNrf687ojDGsWzqCGKNdj8KlzWf',NULL,'127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36','ZXlKcGRpSTZJbFZrZW0xbU4zbFlSbHBaYm1aamVtSlFjRzVPUTJjOVBTSXNJblpoYkhWbElqb2lUM1Z3V0RNMlZWQTVUekJPTm10TE1GUjZZVmRwYTJ4VlozVnVlRzV4ZGxVNVYzZGpSbGd6TmtGNU0yMDFWQ3RzVVVGQldIUjVZemxNYlRWc1hDOXJVMkpwWjNKSU5FdzFRbmRJY0V4MVJGVkJTWE5FV0hCaFpHUlFWWFoyZVdrMmJDczVObFJ2Um5OcFZGcFdibXRCVkRaWlJUaEpOMGcxZDNGRU0ya3hPRFJPWVdwRlRFZDRWWEJJWjBjeFNGRm1ha2N5V0d4S1ExUlBiVXBtYnpGVlRrbDNTelZUYzNaTWNFZEVaREI2TUZ3dlMyZzJjRnBoWmx3dlVIZHlXVVU0VlVKc1VEaEZSbWxyVTJaRWFUQlZWMWxaVmpGRVFrWXlUMlpLTkZ3dk5sd3ZlbWxEU0hVM2IyOTRORk16YkV0YWJXTmtXRlJoZG05VFoxWkVXRWt6VGt4dk1FOUNLMnhCTlcxVlkwWkZPWEJUWnpWS1prdHlkbWQzVTBSb2RuQjBlbVp5ZUVWRVVESktkMVZuUjB0R01EMGlMQ0p0WVdNaU9pSXpNV1l6WVdabU5qazVOemN5TVRVeU5UaGhOR1F6WWpBMU5UazFaRGRrTWpReU5qTXlOR1ZtTlRrME9UYzJOemRqTW1aall6WTRZbUUyWVdSaE5XWTNJbjA9',1501613827);
+insert  into `sessions`(`id`,`user_id`,`ip_address`,`user_agent`,`payload`,`last_activity`) values ('vm1BvjcDGC4dynnDql6L1pp6Nxc5mBQRPtOX3lab',1,'127.0.0.1','Symfony/3.X','ZXlKcGRpSTZJalJpV200M2NWZ3dYQzl4VFZ3dk5qQkhjVXQ0U21wV1p6MDlJaXdpZG1Gc2RXVWlPaUpGZURsM1dEZHVkMjlsU1hZM0t6WkRSbGRjTDBnclFWTlVWakpHVFZWNVEycE1aRzFMYjFSUWFuSjZPRXd5VEcxWFNrVlNTWGt4UVc1cE4wOUVObmRvZEdsV04wTk9RVkYzUTNCTVVWVnRTRnB5TlVKc1ZHRkVOR3A2UWxCY0wxbzNUV3hEY1ZOcU4ydG1PSEZ3TVZVelYzSkxkRGxSTUdSY0wweGlSVWxJZDI5cVdtNVdkRTljTHpONlFUaEVNblZvVEhSRWRWaEJNM1IxU1V0VFRVeENTSE50WEM5NFVWYzBUVFZzY1Z3dmNFVTlJaXdpYldGaklqb2lPV1k0WW1Rek9HRTJNV1UwT0dRMU5UWmtPVGM1WkdGbU56WTJNV015TlRVM01ERTFPV1l5WVRsak1EUTBNbVJsTURZMU1tWTRNRE5qWldWaE5HSmpaU0o5',1501613642);
+insert  into `sessions`(`id`,`user_id`,`ip_address`,`user_agent`,`payload`,`last_activity`) values ('YsYi5QHYvyDcErNrf687ojDGsWzqCGKNdj8KlzWf',NULL,'127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36','ZXlKcGRpSTZJbFZrZW0xbU4zbFlSbHBaYm1aamVtSlFjRzVPUTJjOVBTSXNJblpoYkhWbElqb2lUM1Z3V0RNMlZWQTVUekJPTm10TE1GUjZZVmRwYTJ4VlozVnVlRzV4ZGxVNVYzZGpSbGd6TmtGNU0yMDFWQ3RzVVVGQldIUjVZemxNYlRWc1hDOXJVMkpwWjNKSU5FdzFRbmRJY0V4MVJGVkJTWE5FV0hCaFpHUlFWWFoyZVdrMmJDczVObFJ2Um5OcFZGcFdibXRCVkRaWlJUaEpOMGcxZDNGRU0ya3hPRFJPWVdwRlRFZDRWWEJJWjBjeFNGRm1ha2N5V0d4S1ExUlBiVXBtYnpGVlRrbDNTelZUYzNaTWNFZEVaREI2TUZ3dlMyZzJjRnBoWmx3dlVIZHlXVVU0VlVKc1VEaEZSbWxyVTJaRWFUQlZWMWxaVmpGRVFrWXlUMlpLTkZ3dk5sd3ZlbWxEU0hVM2IyOTRORk16YkV0YWJXTmtXRlJoZG05VFoxWkVXRWt6VGt4dk1FOUNLMnhCTlcxVlkwWkZPWEJUWnpWS1prdHlkbWQzVTBSb2RuQjBlbVp5ZUVWRVVESktkMVZuUjB0R01EMGlMQ0p0WVdNaU9pSXpNV1l6WVdabU5qazVOemN5TVRVeU5UaGhOR1F6WWpBMU5UazFaRGRrTWpReU5qTXlOR1ZtTlRrME9UYzJOemRqTW1aall6WTRZbUUyWVdSaE5XWTNJbjA9',1501613827);
 
 /*Table structure for table `social_logins` */
-
-DROP TABLE IF EXISTS `social_logins`;
 
 CREATE TABLE `social_logins` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -198,8 +185,6 @@ CREATE TABLE `social_logins` (
 /*Data for the table `social_logins` */
 
 /*Table structure for table `users` */
-
-DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -220,9 +205,10 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`first_name`,`last_name`,`email`,`password`,`status`,`confirmation_code`,`confirmed`,`remember_token`,`created_at`,`updated_at`,`deleted_at`) values (1,'Admin','Istrator','admin@admin.com','$2y$10$CDkUIoKcrTsW2ytiHQUK2OLEiHeOqcof/cs9AnT3kRD1Zj8oIQYoG',1,'fa49b0c5fbb8906f1e654989a09b8d12',1,NULL,'2017-08-01 18:54:01','2017-08-01 18:54:01',NULL),(2,'Backend','User','executive@executive.com','$2y$10$TFKxe28awHfz9NjGYWAVQ.2l9vaJ4yK.I9.tyC7GPvgK/F6bqqknm',1,'e2f7ce2d5ba11cdb436d15e1f3582d7d',1,NULL,'2017-08-01 18:54:01','2017-08-01 18:54:01',NULL),(3,'Default','User','user@user.com','$2y$10$Mk47MMyC7nc1HDL0mh8aIey43wcXTB4os4xKFQjwSyoycccfeVjf.',1,'9d2d4832d284876d6aa773a8d5259ffd',1,NULL,'2017-08-01 18:54:02','2017-08-01 18:54:02',NULL);
+insert  into `users`(`id`,`first_name`,`last_name`,`email`,`password`,`status`,`confirmation_code`,`confirmed`,`remember_token`,`created_at`,`updated_at`,`deleted_at`) values (1,'Admin','Istrator','admin@admin.com','$2y$10$CDkUIoKcrTsW2ytiHQUK2OLEiHeOqcof/cs9AnT3kRD1Zj8oIQYoG',1,'fa49b0c5fbb8906f1e654989a09b8d12',1,NULL,'2017-08-01 18:54:01','2017-08-01 18:54:01',NULL);
+insert  into `users`(`id`,`first_name`,`last_name`,`email`,`password`,`status`,`confirmation_code`,`confirmed`,`remember_token`,`created_at`,`updated_at`,`deleted_at`) values (2,'Backend','User','executive@executive.com','$2y$10$TFKxe28awHfz9NjGYWAVQ.2l9vaJ4yK.I9.tyC7GPvgK/F6bqqknm',1,'e2f7ce2d5ba11cdb436d15e1f3582d7d',1,NULL,'2017-08-01 18:54:01','2017-08-01 18:54:01',NULL);
+insert  into `users`(`id`,`first_name`,`last_name`,`email`,`password`,`status`,`confirmation_code`,`confirmed`,`remember_token`,`created_at`,`updated_at`,`deleted_at`) values (3,'Default','User','user@user.com','$2y$10$Mk47MMyC7nc1HDL0mh8aIey43wcXTB4os4xKFQjwSyoycccfeVjf.',1,'9d2d4832d284876d6aa773a8d5259ffd',1,NULL,'2017-08-01 18:54:02','2017-08-01 18:54:02',NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
